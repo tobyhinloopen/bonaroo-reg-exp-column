@@ -2,6 +2,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "lib": ["es2016"],
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "sourceMap": true
   },
   "include": [
