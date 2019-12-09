@@ -1,15 +1,18 @@
 export namespace RegExpStringTransformer {
-  export function to(value: RegExp): string {
-    return value.toString();
+  export function to<T>(value: RegExp|T): string|T {
+    return value instanceof RegExp ? value.toString() : value;
   }
 
-  export function from(value: string): RegExp {
+  export function from<T>(value: string|T): RegExp|string|T {
+    if (typeof value !== "string") {
+      return value;
+    }
     const match = value.match(/^\/(.*)\/(.*)$/);
     if (match) {
       const [, pattern, flags] = match;
       return new RegExp(pattern, flags);
     } else {
-      throw new Error(`"${value}" is not a regular expression`);
+      return value;
     }
   }
 }
