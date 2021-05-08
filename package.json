@@ -19,6 +19,6 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
-    "typeorm": "^0.2.20"
+    "typeorm": "^0.2.25"
   }
 }
